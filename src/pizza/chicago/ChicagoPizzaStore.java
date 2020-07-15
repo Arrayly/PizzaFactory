@@ -6,6 +6,12 @@ public class ChicagoPizzaStore extends PizzaStore {
 
     @Override
     protected Pizza createPizza(String item) {
-        return null;
+        Pizza pizza = null;
+
+        if (item.equals("PEPPERONI")){
+            pizza = new ChicagoPepperoniPizza();
+        }
+
+        return pizza;
     }
 }

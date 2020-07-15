@@ -1,5 +1,9 @@
 package pizza;
 
+/**
+ * Reduce the dependencies to concrete classes by providing a factory class
+ */
+
 public abstract class PizzaStore {
 
     protected abstract Pizza createPizza(String item);
