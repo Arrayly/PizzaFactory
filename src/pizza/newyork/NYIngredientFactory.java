@@ -1,36 +1,36 @@
-package pizza.chicago;
+package pizza.newyork;
 
 import ingredients.PizzaIngredientFactory;
 import ingredients.cheese.Cheese;
-import ingredients.cheese.MozzarellaCheese;
+import ingredients.cheese.ReggianoCheese;
 import ingredients.clams.Clams;
-import ingredients.clams.FreshClams;
+import ingredients.clams.FrozenClams;
 import ingredients.dough.Dough;
-import ingredients.dough.ThickCrustDough;
+import ingredients.dough.ThinCrustDough;
 import ingredients.pepperoni.Pepperoni;
 import ingredients.pepperoni.SlicedPepperoni;
-import ingredients.sauce.MarinaraSauce;
+import ingredients.sauce.PlumTomatoSauce;
 import ingredients.sauce.Sauce;
-import ingredients.veggies.*;
+import ingredients.veggies.BlackOlives;
+import ingredients.veggies.Eggplant;
+import ingredients.veggies.Spinach;
+import ingredients.veggies.Veggies;
 
-import java.util.List;
-
-public class ChicagoIngredientFactory implements PizzaIngredientFactory {
+public class NYIngredientFactory implements PizzaIngredientFactory {
 
     @Override
     public Dough create_dough() {
-        return new ThickCrustDough();
+        return new ThinCrustDough();
     }
 
     @Override
     public Cheese create_cheese() {
-
-        return new MozzarellaCheese();
+        return new ReggianoCheese();
     }
 
     @Override
     public Clams create_clams() {
-        return new FreshClams();
+        return new FrozenClams();
     }
 
     @Override
@@ -40,12 +40,11 @@ public class ChicagoIngredientFactory implements PizzaIngredientFactory {
 
     @Override
     public Veggies[] create_veggies() {
-
-        return new Veggies[]{new Garlic(), new Mushrooms(), new Onion()};
+        return new Veggies[]{new BlackOlives(), new Eggplant(), new Spinach()};
     }
 
     @Override
     public Sauce create_sauce() {
-        return new MarinaraSauce();
+        return new PlumTomatoSauce();
     }
 }

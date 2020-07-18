@@ -1,25 +1,31 @@
 package pizza;
 
+import ingredients.cheese.Cheese;
+import ingredients.clams.Clams;
+import ingredients.dough.Dough;
+import ingredients.pepperoni.Pepperoni;
+import ingredients.sauce.Sauce;
+import ingredients.veggies.Veggies;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Pizza {
     public String name;
-    public String dough;
-    public String sauce;
-    public ArrayList<String> toppings = new ArrayList();
+    public Cheese cheese;
+    public Clams clams;
+    public Dough dough;
+    public Pepperoni pepperoni;
+    public Sauce sauce;
+    public Veggies[] veggies;
+    public double bakeTime = 0;
 
-    void prepare() {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        for (int i = 0; i < toppings.size(); i++) {
-            System.out.println("   " + toppings.get(i));
-        }
-    }
+    public abstract void prepare();
+
+    public abstract double getCost();
 
     public void bake() {
-        System.out.println("Bake for 25 minutes at 350");
+        System.out.println("Bake for " + bakeTime + " minutes at 350");
     }
 
     public void cut() {
@@ -34,16 +40,21 @@ public abstract class Pizza {
         return name;
     }
 
-    public String toString() {
-        StringBuilder display = new StringBuilder();
-        display.append("---- " + name + " ----\n");
-        display.append(dough + "\n");
-        display.append(sauce + "\n");
+    public String getIngredients(){
+        return toString();
+    }
 
-        for (int i = 0; i < toppings.size(); i++) {
-            display.append((String )toppings.get(i) + "\n");
-        }
-        return display.toString();
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "name='" + name + '\'' +
+                ", cheese=" + cheese +
+                ", clams=" + clams +
+                ", dough=" + dough +
+                ", pepperoni=" + pepperoni +
+                ", sauce=" + sauce +
+                ", veggies=" + Arrays.toString(veggies) +
+                '}';
     }
 }
 

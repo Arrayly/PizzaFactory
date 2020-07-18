@@ -6,10 +6,12 @@ package pizza;
 
 public abstract class PizzaStore {
 
+    Pizza pizza;
+
     protected abstract Pizza createPizza(String item);
 
     public Pizza orderPizza(String type) {
-        Pizza pizza = createPizza(type);
+        pizza = createPizza(type);
         System.out.println("--- Making a " + pizza.getName() + " ---");
         pizza.prepare();
         pizza.bake();
@@ -17,4 +19,13 @@ public abstract class PizzaStore {
         pizza.box();
         return pizza;
     }
+
+    public String getIngredients(){
+        return pizza.getIngredients();
+    }
+
+    public double getCost(){
+        return pizza.getCost();
+    }
+
 }
